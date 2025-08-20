@@ -8,7 +8,7 @@
 
 **Project: API INTEGRATION AND DATA VISUALIZATION**
 
-![Project Screenshot](codtech task1 screenshot1.png)
+
 
 
 
