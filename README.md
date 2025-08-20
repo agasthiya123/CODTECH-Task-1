@@ -10,6 +10,8 @@
 
 ![Project Screenshot](https://github.com/agasthiya123/CODTECH-Task-1/blob/main/codtech%20task1%20screenshot1.png?raw=true)
 
+![Humidity Forecast — Chennai](https://github.com/agasthiya123/CODTECH-Task-1/blob/main/codtech%20task1%20screenshot2.png?raw=true)
+
 
 
 **Objective:**
