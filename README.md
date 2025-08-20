@@ -8,6 +8,10 @@
 
 **Project: API INTEGRATION AND DATA VISUALIZATION**
 
+![Project Screenshot](screenshot.png)
+
+
+
 
 **Objective:**
 
