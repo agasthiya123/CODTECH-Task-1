@@ -12,6 +12,8 @@
 
 ![Humidity Forecast — Chennai](https://github.com/agasthiya123/CODTECH-Task-1/blob/main/codtech%20task1%20screenshot2.png?raw=true)
 
+![Weather Condition Counts](https://github.com/agasthiya123/CODTECH-Task-1/blob/main/codtech%20task1%20screenshot3.png?raw=true)
+
 
 
 **Objective:**
