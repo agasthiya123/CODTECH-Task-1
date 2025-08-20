@@ -1,0 +1,57 @@
+API_KEY = "542d90385739dfdf7bdc5ff57867f8d5"
+DEFAULT_CITY = "Chennai" 
+import requests
+import pandas as pd
+
+def fetch_forecast(city, api_key, units="metric"):
+    """
+    5-day/3-hour weather forecast fetch pannum function.
+    Returns: Pandas DataFrame
+    """
+    url = "https://api.openweathermap.org/data/2.5/forecast"
+    params = {"q": city, "appid": api_key, "units": units}
+    r = requests.get(url, params=params, timeout=20)
+    r.raise_for_status()  # error irundha stop aagum
+    raw = r.json()
+
+    # Data extract
+    rows = []
+    for item in raw["list"]:
+        rows.append({
+            "datetime": pd.to_datetime(item["dt"], unit="s"),
+            "temp": item["main"]["temp"],
+            "feels_like": item["main"]["feels_like"],
+            "humidity": item["main"]["humidity"],
+            "pressure": item["main"]["pressure"],
+            "weather": item["weather"][0]["main"],
+            "description": item["weather"][0]["description"]
+        })
+
+    df = pd.DataFrame(rows).sort_values("datetime").reset_index(drop=True)
+    return df
+try:
+    df = fetch_forecast(DEFAULT_CITY, API_KEY)
+    df.head()   # top 5 rows display
+except Exception as e:
+    print("Fetch failed:", e)
+df = fetch_forecast(DEFAULT_CITY, API_KEY)
+df.head()
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10,5))
+plt.plot(df["datetime"], df["temp"], marker="o")
+plt.title(f"Temperature Forecast — {DEFAULT_CITY}")
+plt.xlabel("Date & Time")
+plt.ylabel("Temperature (°C)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+plt.figure(figsize=(10,5))
+plt.plot(df["datetime"], df["humidity"], color="blue", marker="o")
+plt.title(f"Humidity Forecast — {DEFAULT_CITY}")
+plt.xlabel("Date & Time")
+plt.ylabel("Humidity (%)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+df["weather"].value_counts().plot(kind="bar", figsize=(6,4), title="Weather Condition Counts")
