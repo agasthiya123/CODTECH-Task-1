@@ -8,8 +8,7 @@
 
 **Project: API INTEGRATION AND DATA VISUALIZATION**
 
-
-
+![Project Screenshot](https://github.com/agasthiya123/CODTECH-Task-1/blob/main/codtech%20task1%20screenshot1.png?raw=true)
 
 
 
